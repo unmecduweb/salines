@@ -1,0 +1,18 @@
+{% extends "LLCoreBundle::layout-admin.html.twig" %}
+
+{%block pageH1 %}
+    
+{%endblock%}
+{% block admin_container %}
+    <form action="" method="post">
+
+    {% form_theme form 'Form/main-form-layout.html.twig' %}
+
+    
+
+    {{ form_errors(form) }}
+
+    {{ form_rest(form) }}
+    <input type="submit" />
+    </form>
+{% endblock %}

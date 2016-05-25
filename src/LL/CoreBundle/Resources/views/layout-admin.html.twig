@@ -1,0 +1,41 @@
+{% extends "::layout.html.twig" %}
+
+
+{% block stylesheets %}    
+    {{ parent() }}
+    {% stylesheets 'bundles/llcore/css/*' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets  %}
+
+{% endblock %}   
+
+
+
+{% block container %}
+
+    <div class="container-fluid">
+        <h1>{%block pageH1 %}{%endblock%}</h1>
+        {% block admin_container %}        
+
+        {% endblock %}
+    </div>
+    
+
+{% endblock %}
+
+{% block js %}
+
+    {{ parent() }}
+
+
+    {% javascripts 'bundles/llcore/js/plugin/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% javascripts 'bundles/llcore/js/script/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+
+
+{% endblock %}
+

@@ -1,0 +1,25 @@
+
+
+
+
+ll_admin:
+    pattern: /
+    defaults: {_controller: LLCoreBundle:Manage:index}
+
+
+ll_list_entity:
+    pattern: /list/{entityAlias}
+    defaults: {_controller: LLCoreBundle:Manage:list}
+
+ll_edit_entity:
+    pattern: /edit/{entityAlias}/{id}
+    defaults: {_controller: LLCoreBundle:Manage:edit}
+
+ll_view_entity:
+    pattern: /view/{entityAlias}/{id}
+    defaults: {_controller: LLCoreBundle:Manage:view}
+
+        
+ll_delete_entity:
+    pattern: /delete/{entityAlias}/{id}
+    defaults: {_controller: LLCoreBundle:Manage:delete}
