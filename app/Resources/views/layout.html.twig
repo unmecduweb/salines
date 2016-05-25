@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+
+
+{% block head %}
+
+    <title>{% block headTitle %}LL projet - Salines Arc et Senans{% endblock %}</title>
+
+    {% block meta %}
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="{% block metaDescription %}{% endblock metaDescription %}" />
+    {% endblock %}
+
+    <link rel="icon" type="image/png" href="{{ asset('files/image/favicon.png') }}" />
+
+    {% block stylesheets %}    
+        {% stylesheets 'css/common/*' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+
+    {% endblock %}        
+
+
+{% endblock %}        
+
+{% block body %}
+
+    <body>
+        
+    {% block container %}{% endblock %}
+
+    {% block footer %}{% endblock %}
+
+    {% block modal %}{% endblock %}
+    
+        {# Container des modal chargé en ajax   #}
+        <div id="modal-container"></div>
+        
+        <div id="loading-wrap">
+            <img src="{{ asset('files/image/loader.gif') }}" alt="loader" />
+        </div>
+     {# Container des modal chargé en ajax #}
+    <div id="modal-container"></div>
+
+    <div id="loading-wrap">
+        <img src="{{ asset('files/image/loader.gif') }}" alt="loader" />
+    </div>
+    
+    {% block js %}
+        <script  type="text/javascript">
+            var DOMAIN = " {{  app.request.getSchemeAndHttpHost() ~ asset('') }}";
+        </script>
+
+        {% javascripts 'js/common/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        
+        
+        <script type="text/javascript" charset="UTF-8" src="{{ asset('js/common/locales/bootstrap-datepicker.'~ app.request.getLocale() ~'.min.js' ) }}"></script>
+        
+    {% endblock %}
+
+
+    </body>
+
+{% endblock %}

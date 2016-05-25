@@ -1,0 +1,3 @@
+
+ll_core:
+    resource: "@LLCoreBundle/Resources/config/routing.yml"
