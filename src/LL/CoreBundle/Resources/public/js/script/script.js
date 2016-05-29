@@ -31,10 +31,15 @@ emailCount++;
         var newLi = $('<li></li>').html(newWidget);
         newLi.appendTo($list);
         setCollectionProductsUnity();
+        initSelectChoice();
         
         return false;
 
     });
+    $('.select').click(function(){
+        setCollectionProductsUnity();
+    });
+    
 }
 
 function setCollectionProductsUnity(){

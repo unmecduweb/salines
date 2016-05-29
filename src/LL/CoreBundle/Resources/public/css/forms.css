@@ -23,7 +23,6 @@ footer{display:none;}
 .currency{background: #9b1740 none repeat scroll 0% 0%; height: 25px; display: inline-block; width: 7%; color: #FFF; line-height: 25px !important; font-weight: 600; font-size: 17px; text-align: center; vertical-align: top;} 
 .field.field-currency{width: 93%;}
 
-.form-control.field-quantity{width: 95%;}
-
 
 #products-quantity-fields-list{list-style: none; padding: 0; margin: 0;}
+#products-quantity-fields-list .product-unity{position: absolute; bottom: 0px; right: 0px; text-transform: uppercase; background: #d8d8d8; padding: 6px; border-radius: 0px 4px 4px 0px;}
