@@ -23,6 +23,7 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "egeloen/ckeditor-bundle": "~2.0",
+        "paragonie/random_compat": "1.2.*",
         "stof/doctrine-extensions-bundle": "dev-master"
     },
     "require-dev": {

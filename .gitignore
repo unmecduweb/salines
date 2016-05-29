@@ -15,3 +15,4 @@ package.tar
 /.phpunit
 nbproject/
 web/bundles/
+app/config/parameters.yml
