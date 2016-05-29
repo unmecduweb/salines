@@ -16,3 +16,5 @@ package.tar
 nbproject/
 web/bundles/
 app/config/parameters.yml
+app/cache/
+app/logs/
