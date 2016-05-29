@@ -21,7 +21,9 @@
 
         <div class="form-group">
            {{ form_label(form) }}
-           {{ form_widget(form, {"attr":{'class':'form-control'}} ) }}
+           
+            {{ form_widget(form, {"attr":{'class':'form-control' ~ attr.class}} ) }}
+          
         </div>
     {% endspaceless %}
 {% endblock form_row %}
@@ -39,4 +41,5 @@
         </div>
     {%- endif -%}
 {%- endblock time_widget -%}
+
 

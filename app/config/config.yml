@@ -74,7 +74,14 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-
+ivory_ck_editor:
+    default_config: basic
+    configs:
+        basic:
+            uiColor: "#FCFCFC"
+            toolbar: [ [ 'Bold','Italic','Underline','Strike', 'Blockquote'] , [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ], [ 'NumberedList','BulletedList','-','Outdent','Indent','-','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ],  [ 'Link','Unlink'], [ 'Format','FontSize' ] ]
+            
+            
 ll_core:
     menus:
         products:

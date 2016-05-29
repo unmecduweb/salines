@@ -30,7 +30,7 @@ class ManageController extends Controller
         $entityRepo = $em->getRepository($entityParams['class']);
         
       
-        $entityView = $entityRepo->find($id);
+        $entityEdit = $entityRepo->findOneBy(array('id' => $id, 'status'=>1));
         
         $output = array(
             'entity' => $entityView,
@@ -61,7 +61,7 @@ class ManageController extends Controller
         //Appel le repository de l'entité visionné
         $entityRepo = $em->getRepository($entityParams['class']);
         //Appel la liste des items qui compose cette entité
-        $entities = $entityRepo->findAll(null, false);
+        $entities = $entityRepo->findBy(array('status'=>1));
         
 
         if (null === $entities || !count($entities) && (isset($entityParams['unique']) && $entityParams['unique'] == true)) {
@@ -94,7 +94,7 @@ class ManageController extends Controller
         $entityRepo = $em->getRepository($entityParams['class']);
         
         if ($id != "undefined" && $id!==null  && $id!=='new') {
-            $entityEdit = $entityRepo->find($id);
+            $entityEdit = $entityRepo->findOneBy(array('id' => $id, 'status'=>1));
         } else {
             $entityEdit = new $entityParams['class'];
         }
@@ -106,7 +106,7 @@ class ManageController extends Controller
         $form->handleRequest($request);
         //lorsqu'on envoit la modal
         if ($form->isValid()) {
-            dump($entityEdit);
+            
             if($entityAlias=="production"){
                 foreach ($entityEdit->getProductQuantity() as $key=>$product){
                     $entityEdit->getProductQuantity()[$key]->setProduction($entityEdit);
@@ -123,8 +123,8 @@ class ManageController extends Controller
                 'success' => true,
             );
            
-            //Création nouvelle fiche, on redirige sur la nouvelle url
-            if($id=="new")$this->redirect($this->generateUrl('ll_list_entity', ['entityAlias' => $entityAlias]));
+            // redirige sur la liste des entit"s
+            $this->redirect($this->generateUrl('ll_list_entity', ['entityAlias' => $entityAlias]));
             
         } else {
             //AJAX VERSION
@@ -159,18 +159,28 @@ class ManageController extends Controller
         }
     }
 
-    public function deleteAction($entity, $id, Request $request) {
-        $adminParams = $this->container->getParameter('le_admin.entities');
-        $entityParams = $adminParams[$entity];
+    public function deleteAction($entityAlias, $id)
+    {
+        //Appel les paramètes du bundle présent ds config.yml
+        $adminParams = $this->container->getParameter('ll_core.entities');
+        //Récupère le tableau de valeur correspondant à l'entité listé
+        $entityParams = $adminParams[$entityAlias];
 
+        //Appel entityManager
         $em = $this->getDoctrine()->getManager();
-        $entityRepo = $em->getRepository($entityParams['class']);
-        $entityEdit = $entityRepo->find($id, null, null);
 
-        $em->remove($entityEdit);
+        //Appel le repository de l'entité visionné
+        $entityRepo = $em->getRepository($entityParams['class']);
+        
+      
+        $entityEdit = $entityRepo->find($id);
+
+        $entityEdit->setStatus(0);
+        
+        $em->persist($entityEdit);
         $em->flush();
 
-        $url = $this->generateUrl('le_admin_list_entity', ['entity' => $entity]);
+        $url = $this->generateUrl('ll_list_entity', ['entityAlias' => $entityAlias]);
         return $this->redirect($url);
     }
 }

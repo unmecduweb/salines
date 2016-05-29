@@ -5,6 +5,7 @@ namespace LL\CoreBundle\Entity;
 use LL\CoreBundle\Entity\Production;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Product
@@ -58,7 +59,12 @@ class Product
      */
     private $isAllergen;
     
-    
+    /**
+     * @var integer
+     * @Assert\Type(type="integer")
+     * @ORM\Column(name="status", type="smallint")
+     */
+    private $status = 1;
     
     /**
      * @var \DateTime $created
@@ -75,6 +81,7 @@ class Product
      * @ORM\Column(type="datetime")
      */
     private $updated;
+    
     
     /**
      * @ORM\OneToMany(targetEntity="LL\CoreBundle\Entity\ProductQuantity", mappedBy="product", cascade={"persist"})
@@ -361,5 +368,29 @@ class Product
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Set status
+     *
+     * @param integer $status
+     *
+     * @return Product
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return integer
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

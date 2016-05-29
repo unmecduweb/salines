@@ -5,6 +5,7 @@ namespace LL\CoreBundle\Entity;
 use LL\CoreBundle\Entity\Product;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Production
@@ -105,6 +106,13 @@ class Production
      * @ORM\Column(type="datetime")
      */
     private $updated;
+    
+    /**
+     * @var integer
+     * @Assert\Type(type="integer")
+     * @ORM\Column(name="status", type="smallint")
+     */
+    private $status = 1;
 
     /**
      * @var \DateTime
@@ -449,5 +457,29 @@ class Production
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Set status
+     *
+     * @param integer $status
+     *
+     * @return Production
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return integer
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

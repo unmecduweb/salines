@@ -1,5 +1,7 @@
 {% extends "LLCoreBundle::layout-admin.html.twig" %}
 
+{% import "Form/forms.html.twig" as forms %}
+
 {%block pageH1 %}
     
 {%endblock%}
@@ -51,19 +53,9 @@
         
         <div class="col-xs-12">
             {{ form_label(form.productQuantity) }}
-            <ul id="email-fields-list" class="collection-list" data-prototype="{{ form_widget(form.productQuantity.vars.prototype) | e }}">
+            <ul id="products-quantity-fields-list" class="collection-list" data-prototype="{{ forms.product_prototype(form.productQuantity.vars.prototype) | e }}">
             {% for productQuantity in form.productQuantity %}
-                <li>
-                    {{ form_errors(productQuantity) }}
-                    <div class="col-xs-6 form-group ">
-                        {{ form_label(productQuantity.product) }}
-                        {{ form_widget(productQuantity.product, {"attr":{'class':'select'}} ) }}
-                    </div>
-                    <div class="col-xs-6 form-group">
-                        {{ form_label(productQuantity.quantity) }}
-                        {{ form_widget(productQuantity.quantity, {"attr":{'class':'form-control'}} ) }}
-                    </div>
-                </li>
+               {{  forms.product_prototype(productQuantity) }}
             {% endfor %}
             </ul>
             <a href="#" class="button collection-add">Ajouter un produit</a>

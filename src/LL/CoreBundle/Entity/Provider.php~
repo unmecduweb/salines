@@ -4,6 +4,7 @@ namespace LL\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Provider
@@ -46,6 +47,12 @@ class Provider
      */
     private $updated;
     
+    /**
+     * @var integer
+     * @Assert\Type(type="integer")
+     * @ORM\Column(name="status", type="smallint")
+     */
+    private $status = 1;
     
     
     /**

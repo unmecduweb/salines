@@ -19,3 +19,11 @@ footer{display:none;}
 .table-mode{text-align: center; font-size: 22px;}
 .table-host-id{font-weight: 600; font-size: 16px; text-align: center; vertical-align: middle;}
 .table-host-button{font-size: 14px; font-weight: 600; background-color: #E52242; display: block; color: #fff; margin: 3px 0; padding: 2px;}
+
+.currency{background: #9b1740 none repeat scroll 0% 0%; height: 25px; display: inline-block; width: 7%; color: #FFF; line-height: 25px !important; font-weight: 600; font-size: 17px; text-align: center; vertical-align: top;} 
+.field.field-currency{width: 93%;}
+
+.form-control.field-quantity{width: 95%;}
+
+
+#products-quantity-fields-list{list-style: none; padding: 0; margin: 0;}

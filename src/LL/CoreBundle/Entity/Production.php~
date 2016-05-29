@@ -5,6 +5,7 @@ namespace LL\CoreBundle\Entity;
 use LL\CoreBundle\Entity\Product;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Production
@@ -85,7 +86,7 @@ class Production
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\Column(name="author", type="string", length=255, nullable=true)
      */
     private $author;
 
@@ -105,6 +106,13 @@ class Production
      * @ORM\Column(type="datetime")
      */
     private $updated;
+    
+    /**
+     * @var integer
+     * @Assert\Type(type="integer")
+     * @ORM\Column(name="status", type="smallint")
+     */
+    private $status = 1;
 
     /**
      * @var \DateTime
@@ -378,4 +386,76 @@ class Production
         $this->productQuantity = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     *
+     * @return Production
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Production
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Production
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
 }

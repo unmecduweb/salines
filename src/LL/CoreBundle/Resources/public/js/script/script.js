@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 function manageCollectionProducts(){
     // garde une trace du nombre de champs email qui ont été affichés
-    var emailCount = 0;
+    
 
     $('.collection-add').click(function() {
         var $list = $(this).prev('.collection-list');
@@ -25,17 +25,26 @@ function manageCollectionProducts(){
         // par un nombre unique pour chaque email
         // le nom de l'attribut final ressemblera à name="contact[emails][2]"
         newWidget = newWidget.replace(/__name__/g, emailCount);
-emailCount++;
 
+        
         // créer une nouvelle liste d'éléments et l'ajoute à notre liste
         var newLi = $('<li></li>').html(newWidget);
         newLi.appendTo($list);
-        
+        setCollectionProductsUnity();
         
         return false;
 
     });
 }
+
+function setCollectionProductsUnity(){
+    $('#products-quantity-fields-list li').each(function(i,item){
+        log($(item).find('select.select option:selected').data('unity'));
+        
+        $(item).find('.product-unity').html($(item).find('select.select option:selected').data('unity'))
+    });
+}
+
 
 function manageProductionPrices(){
     var REF_nbPerson = $('#nb-person').data('ref');

@@ -53,15 +53,15 @@ class ProductionType extends AbstractType
                 'label' => 'Auteur de la fiche',
                 'required' => false
             ])
-            ->add('description', 'textarea',[
-                'label' => 'Description de la fiche',
+            ->add('description', 'ckeditor',[
+                'label' => 'Description de la fiche', 
                 'required' => false
             ])
-            ->add('materiels', 'textarea',[
+            ->add('materiels', 'ckeditor',[
                 'label' => 'Matériels à utilisé',
                 'required' => false
             ])
-            ->add('productionStep', 'textarea',[
+            ->add('productionStep', 'ckeditor',[
                 'label' => 'Etapes de fabrication',
                 'required' => false
             ])

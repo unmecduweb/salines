@@ -1,8 +1,0 @@
-bc8382,::1,GET,http://localhost/salines/web/app_dev.php/view/production/3,1463988560,,200
-211a3e,::1,GET,http://localhost/salines/web/app_dev.php/css/7b33b8f_part_1_bootstrap-datepicker_1.css,1463988565,6fe183,200
-6fe183,::1,GET,http://localhost/salines/web/app_dev.php/css/7b33b8f_part_1_bootstrap-datepicker_1.css,1463988565,,500
-2fa21d,::1,GET,http://localhost/salines/web/app_dev.php/view/production/3,1463988854,,200
-eca35a,::1,GET,http://localhost/salines/web/app_dev.php/view/production/3,1463989208,,200
-d3cf35,::1,GET,http://localhost/salines/web/app_dev.php/view/production/3,1463989343,,200
-b08756,::1,GET,http://localhost/salines/web/app_dev.php/view/production/3,1463989367,,200
-c06489,::1,GET,http://localhost/salines/web/app_dev.php/view/production/3,1463989739,,200
